@@ -107,7 +107,6 @@ public class PlayerController : MonoBehaviour
                 Time.timeScale = 1;
             }
         }
-
         
     }
 
@@ -130,7 +129,6 @@ public class PlayerController : MonoBehaviour
         GameData.health -= 10;
         healthText.SetText("Health: " + GameData.health.ToString());
         infoText.SetText("Information: Be careful! messing with time could lead to serious consequences!");
-        //Debug.Log("touched AI");
         if (GameData.health == 0)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Lose");
