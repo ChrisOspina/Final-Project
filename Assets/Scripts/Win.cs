@@ -18,7 +18,7 @@ public class Win : MonoBehaviour
         if (Input.anyKeyDown || Input.GetButtonDown("Jump"))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
-            GameData.score = 0;
+            //GameData.score = 0;
         }
     }
 }

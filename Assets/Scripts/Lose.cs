@@ -5,25 +5,14 @@ using UnityEngine.UI;
 
 public class Lose : MonoBehaviour
 {
-    public Button Retrybtn;
-    public Button Menubtn;
-    private void Start()
+    void Update()
     {
-        Button btn1 = Retrybtn.GetComponent<Button>();
-        Button btn2 = Menubtn.GetComponent<Button>();
-
-        btn1.onClick.AddListener(retryOnClick);
-        btn2.onClick.AddListener(menuOnClick);
+        if (Input.anyKeyDown || Input.GetButtonDown("Jump"))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        }
     }
 
-    void retryOnClick()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(GameData.currentLevel);
-    }
 
-    void menuOnClick()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
-    }
 
 }

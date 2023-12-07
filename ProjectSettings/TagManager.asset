@@ -9,6 +9,11 @@ TagManager:
   - AIEgypt
   - AI
   - ExtraLife
+  - PickupSword
+  - playerWeapon
+  - Fire
+  - Drink
+  - Food
   layers:
   - Default
   - TransparentFX

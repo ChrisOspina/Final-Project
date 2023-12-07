@@ -95,9 +95,10 @@ GameObject:
   - component: {fileID: 5921827421370107438}
   - component: {fileID: 1255658323222697143}
   - component: {fileID: -7526167864645786873}
+  - component: {fileID: 8783956425831858265}
   m_Layer: 0
   m_Name: Flask_05
-  m_TagString: ExtraLife
+  m_TagString: Drink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,3 +192,16 @@ CapsuleCollider:
   m_Height: 0.23929505
   m_Direction: 1
   m_Center: {x: -0.000000055879354, y: 0.119647525, z: -0.0000006109476}
+--- !u!114 &8783956425831858265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7593618516577992462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b8997f1b5a9e144bc312e149da6a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 30
