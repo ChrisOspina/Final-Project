@@ -64,18 +64,17 @@ public class PlayerController : MonoBehaviour
 
         if (currentLevel == 0)
         {
-            infoText.SetText("Information: Welcome to your summer job at the Seidenberg anthropology lab. For your interview " +
-                " find all the missing test tubes");
+            infoText.SetText("<mark>Welcome to your summer job at the Seidenberg anthropology lab. For your training find all the missing test tubes and avoid our robot.</mark>");
         }
         else if(currentLevel == 1)
         {
-            infoText.SetText("Information: Welcome to Ancient Egypt. To find your way out collect all the vases but" +
-                "beware of Pharoah's curse!");
+            infoText.SetText("<mark>Welcome to Ancient Egypt. To find your way out collect all the vases but" +
+                "beware of Pharoah's curse!</mark>");
         }
         else if(currentLevel == 2)
         {
-            infoText.SetText("Information: How often do you think of the Roman Empire? We sent you now to the Great Fire of Rome" +
-               " where the Emperor's soldiers are on the hunt for traitors. Collect all the coins to escape. Also watch out for flames");
+            infoText.SetText("<mark>How often do you think of the Roman Empire? We sent you now to the Great Fire of Rome" +
+               " where the Emperor's soldiers are on the hunt for traitors. Collect all the coins to escape. Also watch out for flames</mark>");
         }
     }
 
@@ -141,7 +140,7 @@ public class PlayerController : MonoBehaviour
         src.PlayOneShot(dieSound);
         GameData.health -= 10;
         healthText.SetText("Health: " + GameData.health.ToString());
-        infoText.SetText("Information: Be careful! messing with time could lead to serious consequences!");
+        infoText.SetText("<mark>Be careful! messing with time could lead to serious consequences!</mark>");
         if (GameData.health == 0)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Lose");
@@ -152,7 +151,7 @@ public class PlayerController : MonoBehaviour
         src.PlayOneShot(dieSound);
         GameData.health -= 10;
         healthText.SetText("Health: " + GameData.health.ToString());
-        infoText.SetText("Information: Yow! that must burn. Don't play with fire!");
+        infoText.SetText("<mark>Yow! that must burn. Don't play with fire!</mark>");
         if (GameData.health == 0)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Lose");
@@ -161,16 +160,28 @@ public class PlayerController : MonoBehaviour
     void Eat()
     {
         src.PlayOneShot(eatSound);
-        GameData.health += 20;
-        healthText.SetText("Health: " + GameData.health.ToString());
-        infoText.SetText("Information: Eat up for free energy!");
+        if (currentLevel == 0)
+            infoText.SetText("<mark>Be sure to also be on the lookout for foods throughout your journey. They give you energy.</mark>");
+        else
+        {
+            GameData.health += 20;
+            healthText.SetText("Health: " + GameData.health.ToString());
+            infoText.SetText("<mark>Eat up for free energy!</mark>");
+        }
     }
     void Drink()
     {
         src.PlayOneShot(drinkSound);
-        GameData.health += 10;
-        healthText.SetText("Health: " + GameData.health.ToString());
-        infoText.SetText("Information: It's always important to stay hydrated. Gives you free energy!");
+        
+        if (currentLevel == 0)
+            infoText.SetText("<mark>This is an energy drink. You will find some more throughout your journey</mark>");
+        else
+        {
+            GameData.health += 10;
+            healthText.SetText("Health: " + GameData.health.ToString());
+            infoText.SetText("<mark>It's always important to stay hydrated. Gives you free energy!</mark>");
+        }
+            
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -179,11 +190,11 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             src.PlayOneShot(pickupsound);
             if (currentLevel == 0)
-                infoText.SetText("Information: You collected a test tube");
+                infoText.SetText("<mark>You collected a test tube</mark>");
             else if (currentLevel ==1)
-                infoText.SetText("Information: You collected a vase. The Ancient Egyptians used this as a fine work of art");
+                infoText.SetText("<mark>You collected a vase. The Ancient Egyptians used this as a fine work of art.</mark>");
             else if(currentLevel == 2)
-                infoText.SetText("Information: You collected a coin. The Romans first used money as we know it today.");
+                infoText.SetText("<mark>You collected a coin. The Romans first used money as we know it today.</mark>");
             bool allcollected = Checkallcollected();
 
             if (allcollected == true)
@@ -191,9 +202,9 @@ public class PlayerController : MonoBehaviour
                 portal.SetActive(true);
 
                 if (currentLevel == 0)
-                    infoText.SetText("Information: You collected all the test tubes now the portal is open to begin your real work");
+                    infoText.SetText("<mark>You collected all the test tubes now the portal is open to begin your real work.</mark>");
                 else {
-                    infoText.SetText("Information: The portal is now open");
+                    infoText.SetText("<mark>The portal is now open.</mark>");
                 }
             }
 
@@ -217,13 +228,16 @@ public class PlayerController : MonoBehaviour
 
         else if (other.CompareTag("PickupSword"))
         {
-            infoText.SetText("Information: You picked up a weapon. This will protect you");
+            infoText.SetText("<mark>You picked up a weapon. This will protect you</mark>");
             Destroy(other.gameObject);
             playerWeapon.SetActive(true);
         }
         else if (other.CompareTag("AI"))
         {
-            Die();
+            if (currentLevel == 0)
+                infoText.SetText("<mark>Beware of our test robot</mark>");
+            else
+                Die();
         }
         else if (other.CompareTag("Fire"))
         {
