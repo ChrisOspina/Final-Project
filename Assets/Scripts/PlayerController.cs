@@ -38,6 +38,9 @@ public class PlayerController : MonoBehaviour
     public AudioClip drinkSound;
     public AudioClip gameOver;
 
+    public ParticleSystem poison;
+    public ParticleSystem burn;
+
 
     void SaveSettings()
     {
@@ -61,6 +64,19 @@ public class PlayerController : MonoBehaviour
     {
         SaveSettings();
         src = GetComponent<AudioSource>();
+        if (poison)
+        {
+            poison = poison.GetComponent<ParticleSystem>();
+            poison.Pause();
+        }
+           
+        if (burn)
+        {
+            burn = burn.GetComponent<ParticleSystem>();
+            burn.Pause();
+        }
+            
+
         if (currentLevel > 0)
         {
             GameData.health = health;
@@ -163,14 +179,15 @@ public class PlayerController : MonoBehaviour
     }
     void Burn()
     {
+        
         StartCoroutine(ApplyBurnOverTime());
         infoText.SetText("<mark>Yow! that must burn. Don't play with fire!</mark>");
         if (GameData.health == 0)
         {
-           
             losePanel.SetActive(true);
             src.PlayOneShot(gameOver);
         }
+        burn.Pause();
     }
     void CollectItem()
     {
@@ -244,6 +261,7 @@ public class PlayerController : MonoBehaviour
         src.PlayOneShot(drinkSound);
         infoText.SetText("Beest careful some drinks may actually beest poisonous");
         StartCoroutine(ApplyPoisonOverTime());
+        poison.Pause();
     }
 
     IEnumerator ApplyPoisonOverTime()
@@ -254,9 +272,13 @@ public class PlayerController : MonoBehaviour
             src.PlayOneShot(dieSound);
             healthText.SetText("Health: " + GameData.health.ToString());
 
+            poison.Play();
+           // Debug.Log(poison.isPlaying);
+
             // Wait for one second before the next iteration
             yield return new WaitForSeconds(1.0f);
         }
+        poison.Stop();
     }
 
     IEnumerator ApplyBurnOverTime()
@@ -267,9 +289,12 @@ public class PlayerController : MonoBehaviour
             src.PlayOneShot(dieSound);
             healthText.SetText("Health: " + GameData.health.ToString());
 
+            burn.Play();
+
             // Wait for one second before the next iteration
             yield return new WaitForSeconds(1.0f);
         }
+        burn.Stop();
     }
 
 
