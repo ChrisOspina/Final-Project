@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Medieval.unity
     guid: 10b87df2194703243ad9b659a8b2f19d
   - enabled: 1
+    path: Assets/Scenes/Pirate.unity
+    guid: a34ce0d07558f7647b8b73009260da69
+  - enabled: 1
     path: Assets/Scenes/Win.unity
     guid: 1c6d6b6febe676940a3eed2229e4f243
   m_configObjects: {}

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.UI;
 
 public class LosePanel : MonoBehaviour
 {
@@ -15,12 +14,15 @@ public class LosePanel : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
+            dead = false;
             UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         }
 
         else if(Input.GetKeyDown(KeyCode.M))
         {
+            dead = false;
             UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+          
         }
 
         if (GameData.health == 0)
@@ -29,7 +31,13 @@ public class LosePanel : MonoBehaviour
         if (dead== true){
             Time.timeScale = 0;
         }
+        if (dead == false)
+        {
+            Time.timeScale = 1;
+        }
     }
+
+   
 
 
 

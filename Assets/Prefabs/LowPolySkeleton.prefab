@@ -1533,7 +1533,7 @@ GameObject:
   - component: {fileID: 4730283992718373218}
   - component: {fileID: 6085674446814378954}
   - component: {fileID: 7963780146031284618}
-  - component: {fileID: 4192836188330683993}
+  - component: {fileID: -6874143627166630397}
   m_Layer: 0
   m_Name: LowPolySkeleton
   m_TagString: AI
@@ -1614,8 +1614,8 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!65 &4192836188330683993
-BoxCollider:
+--- !u!136 &-6874143627166630397
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1632,6 +1632,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

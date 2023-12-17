@@ -89,8 +89,8 @@ public class PlayerController : MonoBehaviour
         }
         else if(currentLevel == 1)
         {
-            infoText.SetText("<mark>Welcome to Ancient Egypt. To find your way out collect all the vases but" +
-                "beware of Pharoah's curse!</mark>");
+            infoText.SetText("Welcome to Ancient Egypt. To find your way out collect all the vases but" +
+                "beware of Pharoah's curse!");
         }
         else if(currentLevel == 2)
         {
@@ -99,7 +99,11 @@ public class PlayerController : MonoBehaviour
         }
         else if (currentLevel == 3)
         {
-            infoText.SetText("<mark>Welcometh to the Middle Ages. To progresseth findeth the legendary Excalibur but beware of skeletons from King Arthur's Dungeon</mark>");
+            infoText.SetText("Welcometh to the Middle Ages. To progresseth findeth the legendary Excalibur but beware of King Arthur's Knights");
+        }
+        else if(currentLevel == 4)
+        {
+            infoText.SetText("Yo Ho a Pirates Life for you! We sent you to colonial Hispaniola to find the cursed Aztec gold but remember Dead Men Tell No Tales.");
         }
     }
 
@@ -173,21 +177,21 @@ public class PlayerController : MonoBehaviour
             infoText.SetText("<mark>Be careful! messing with time could lead to serious consequences!</mark>");
         if (GameData.health == 0)
         {
-            losePanel.SetActive(true);
-            src.PlayOneShot(gameOver);
+            GameOver();
         }
     }
     void Burn()
     {
         
         StartCoroutine(ApplyBurnOverTime());
-        infoText.SetText("<mark>Yow! that must burn. Don't play with fire!</mark>");
+        if (currentLevel == 3)
+            infoText.SetText("Ouch! Yond wilt burn. Doth not muddle with fire");
+        else
+            infoText.SetText("<mark>Yow! That must burn. Don't play with fire!</mark>");
         if (GameData.health == 0)
         {
-            losePanel.SetActive(true);
-            src.PlayOneShot(gameOver);
+            GameOver();
         }
-        burn.Pause();
     }
     void CollectItem()
     {
@@ -197,9 +201,11 @@ public class PlayerController : MonoBehaviour
         if (currentLevel == 0)
             infoText.SetText("<mark>You collected a test tube</mark>");
         else if (currentLevel == 1)
-            infoText.SetText("<mark>You collected a vase. The Ancient Egyptians used this as a fine work of art.</mark>");
+            infoText.SetText("You collected a vase. The Ancient Egyptians used this as a fine work of art.");
         else if (currentLevel == 2)
             infoText.SetText("<mark>You collected a coin. The Romans first used money as we know it today.</mark>");
+        else if (currentLevel == 4)
+            infoText.SetText("You found Aztec gold. Legend has it that the Aztec gods cursed the Spaniards for stealing their treasure.");
         bool allcollected = Checkallcollected();
 
         if (allcollected == true)
@@ -210,6 +216,8 @@ public class PlayerController : MonoBehaviour
                 infoText.SetText("<mark>You collected all the test tubes now the portal is open to begin your real work.</mark>");
             else if (currentLevel == 3)
                 infoText.SetText("Thou hath found the legendary sw'rd of King Arthur. Just what we needeth f'r researcheth anon the p'rtal is open by the Church");
+            else if (currentLevel == 4)
+                infoText.SetText("The portal is now open by the ship. Hurry up to avoid getting cursed");
             else
             {
                 infoText.SetText("<mark>The portal is now open.</mark>");
@@ -259,9 +267,16 @@ public class PlayerController : MonoBehaviour
     void PoisonDrink()
     {
         src.PlayOneShot(drinkSound);
-        infoText.SetText("Beest careful some drinks may actually beest poisonous");
+        if (currentLevel==3)
+            infoText.SetText("Beest careful some drinks may actually beest poisonous");
+        else
+            infoText.SetText("Be careful some drinks may actually be poisonous");
         StartCoroutine(ApplyPoisonOverTime());
-        poison.Pause();
+
+        if (GameData.health == 0)
+        {
+            GameOver();
+        }
     }
 
     IEnumerator ApplyPoisonOverTime()
@@ -297,6 +312,11 @@ public class PlayerController : MonoBehaviour
         burn.Stop();
     }
 
+    void GameOver()
+    {
+        losePanel.SetActive(true);
+        src.PlayOneShot(gameOver);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
