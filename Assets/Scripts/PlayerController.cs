@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
 
     public int currentLevel;
     public string NextLevel;
-    public int health;
     public int collectCount;
     public int collectTotal;
 
@@ -79,7 +78,6 @@ public class PlayerController : MonoBehaviour
 
         if (currentLevel > 0)
         {
-            GameData.health = health;
             healthText.SetText("Health: " + GameData.health.ToString());
         }  
 
@@ -175,6 +173,7 @@ public class PlayerController : MonoBehaviour
             infoText.SetText("<mark>Beest careful! messing with time couldst leadeth to s'rious consequences!</mark>");
         else
             infoText.SetText("<mark>Be careful! messing with time could lead to serious consequences!</mark>");
+
         if (GameData.health == 0)
         {
             GameOver();
@@ -351,7 +350,7 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("AI"))
         {
             if (currentLevel == 0)
-                infoText.SetText("<mark>Beware of our test robot</mark>");
+                infoText.SetText("<mark>This robot is just here to train you. When you're time travelling you won't get lucky.</mark>");
             else
                 Die();
         }

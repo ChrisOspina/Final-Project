@@ -6,9 +6,14 @@ public class MainMenu : MonoBehaviour
 {
     void Update()
     {
-        if (Input.anyKeyDown || Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Tutorial");
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("ControlsInfo");
         }
     }
 }
