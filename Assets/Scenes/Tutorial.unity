@@ -3239,7 +3239,7 @@ MonoBehaviour:
   - {fileID: 503870008}
   - {fileID: 561229183}
   mixer: {fileID: 24100000, guid: be2a2b9282b99b84780b830b2e79eff8, type: 2}
-  losePanel: {fileID: 1288129350}
+  losePanel: {fileID: 0}
   pausePanel: {fileID: 872925863}
   portal: {fileID: 1612144229}
   infoText: {fileID: 399479620}
@@ -4284,37 +4284,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0.006}
   m_TimeToStationary: 0.5
---- !u!1 &1288129350
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1288129351}
-  m_Layer: 0
-  m_Name: placeholder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1288129351
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1288129350}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1302203351 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3060923050907032291, guid: 36ae5c5718b1388499355fd63f6622c7, type: 3}
@@ -6184,4 +6153,3 @@ SceneRoots:
   - {fileID: 899873999}
   - {fileID: 780649402}
   - {fileID: 301509738}
-  - {fileID: 1288129351}
