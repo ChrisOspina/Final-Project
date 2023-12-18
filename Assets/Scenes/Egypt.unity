@@ -2210,7 +2210,6 @@ MonoBehaviour:
   countText: {fileID: 863117313}
   currentLevel: 1
   NextLevel: Rome
-  health: 100
   collectCount: 0
   collectTotal: 0
   pickupsound: {fileID: 8300000, guid: adcac75087a17704ca6c0c3b15bc3aa5, type: 3}
@@ -2218,6 +2217,8 @@ MonoBehaviour:
   eatSound: {fileID: 8300000, guid: ed7e1ddc0db3db740bde7659cb7fc7ee, type: 3}
   drinkSound: {fileID: 8300000, guid: d8e38c8a813774a4eaa46523a72474a9, type: 3}
   gameOver: {fileID: 8300000, guid: 65b3207f91d67094e87be85dbe54c89d, type: 3}
+  poison: {fileID: 0}
+  burn: {fileID: 0}
 --- !u!114 &893186278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3810,6 +3811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: 0
+  mixer: {fileID: 24100000, guid: be2a2b9282b99b84780b830b2e79eff8, type: 2}
 --- !u!114 &1460326821
 MonoBehaviour:
   m_ObjectHideFlags: 0

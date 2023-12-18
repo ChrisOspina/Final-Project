@@ -87,8 +87,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(currentLevel == 1)
         {
-            infoText.SetText("Welcome to Ancient Egypt. To find your way out collect all the vases but" +
-                "beware of Pharoah's curse!");
+            infoText.SetText("Welcome to Ancient Egypt. To find your way out collect all the vases but beware of Pharoah's curse!");
         }
         else if(currentLevel == 2)
         {
@@ -101,7 +100,12 @@ public class PlayerController : MonoBehaviour
         }
         else if(currentLevel == 4)
         {
-            infoText.SetText("Yo Ho a Pirates Life for you! We sent you to colonial Hispaniola to find the cursed Aztec gold but remember Dead Men Tell No Tales.");
+            infoText.SetText("<mark>Yo Ho a Pirates Life for you! We sent you to colonial Hispaniola to find the cursed Aztec gold but remember Dead Men Tell No Tales.</mark>");
+        }
+        else if(currentLevel == 5)
+        {
+            infoText.SetText("<mark>Howdy partner welcome to the wildest town in the wilderness! Watch out for dirty bandits as you find the " +
+                "magnificent seven diamonds</mark>");
         }
     }
 
@@ -204,7 +208,9 @@ public class PlayerController : MonoBehaviour
         else if (currentLevel == 2)
             infoText.SetText("<mark>You collected a coin. The Romans first used money as we know it today.</mark>");
         else if (currentLevel == 4)
-            infoText.SetText("You found Aztec gold. Legend has it that the Aztec gods cursed the Spaniards for stealing their treasure.");
+            infoText.SetText("<mark>You found Aztec gold. Legend has it that the Aztec gods cursed the Spaniards for stealing their treasure.</mark>");
+        else if (currentLevel == 5)
+            infoText.SetText("<mark>Yee haw! You found one of the seven diamonds. Keep it out of bandits' reach</mark>");
         bool allcollected = Checkallcollected();
 
         if (allcollected == true)
@@ -216,7 +222,7 @@ public class PlayerController : MonoBehaviour
             else if (currentLevel == 3)
                 infoText.SetText("Thou hath found the legendary sw'rd of King Arthur. Just what we needeth f'r researcheth anon the p'rtal is open by the Church");
             else if (currentLevel == 4)
-                infoText.SetText("The portal is now open by the ship. Hurry up to avoid getting cursed");
+                infoText.SetText("<mark>The portal is now open by the ship. Hurry up to avoid getting cursed</mark>");
             else
             {
                 infoText.SetText("<mark>The portal is now open.</mark>");
@@ -269,7 +275,7 @@ public class PlayerController : MonoBehaviour
         if (currentLevel==3)
             infoText.SetText("Beest careful some drinks may actually beest poisonous");
         else
-            infoText.SetText("Be careful some drinks may actually be poisonous");
+            infoText.SetText("<mark>Be careful some drinks may actually be poisonous</mark>");
         StartCoroutine(ApplyPoisonOverTime());
 
         if (GameData.health == 0)

@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: 0
+  mixer: {fileID: 24100000, guid: be2a2b9282b99b84780b830b2e79eff8, type: 2}
 --- !u!114 &40951492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6057,7 +6058,6 @@ MonoBehaviour:
   countText: {fileID: 1468047302}
   currentLevel: 2
   NextLevel: Medieval
-  health: 200
   collectCount: 0
   collectTotal: 6
   pickupsound: {fileID: 8300000, guid: 34f9cbd28a9740349b6cc2f5e280dda3, type: 3}
@@ -7222,6 +7222,6 @@ SceneRoots:
   - {fileID: 1413258498}
   - {fileID: 1297687493}
   - {fileID: 1667605851}
-  - {fileID: 1873698146}
   - {fileID: 1342709960}
   - {fileID: 50297220}
+  - {fileID: 1873698146}

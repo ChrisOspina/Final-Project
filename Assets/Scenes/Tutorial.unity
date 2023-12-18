@@ -2205,7 +2205,7 @@ AudioSource:
   m_GameObject: {fileID: 780649397}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -8249932237759925356, guid: be2a2b9282b99b84780b830b2e79eff8, type: 2}
+  OutputAudioMixerGroup: {fileID: 7389826199852441093, guid: be2a2b9282b99b84780b830b2e79eff8, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7f4aa26d5b55226409cda231ffaf869b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -3247,7 +3247,6 @@ MonoBehaviour:
   countText: {fileID: 1516324427}
   currentLevel: 0
   NextLevel: Egypt
-  health: 0
   collectCount: 0
   collectTotal: 0
   pickupsound: {fileID: 8300000, guid: 7a587bc83d1cb470e828ba6410f90a75, type: 3}
@@ -3255,6 +3254,8 @@ MonoBehaviour:
   eatSound: {fileID: 8300000, guid: ed7e1ddc0db3db740bde7659cb7fc7ee, type: 3}
   drinkSound: {fileID: 8300000, guid: d8e38c8a813774a4eaa46523a72474a9, type: 3}
   gameOver: {fileID: 0}
+  poison: {fileID: 0}
+  burn: {fileID: 0}
 --- !u!82 &1009730774
 AudioSource:
   m_ObjectHideFlags: 0

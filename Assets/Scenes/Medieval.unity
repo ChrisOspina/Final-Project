@@ -11779,7 +11779,6 @@ MonoBehaviour:
   countText: {fileID: 1784299497}
   currentLevel: 3
   NextLevel: Pirate
-  health: 200
   collectCount: 0
   collectTotal: 1
   pickupsound: {fileID: 8300000, guid: 958635a562abc5841bc72d6c0a725a99, type: 3}
@@ -13040,6 +13039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: 0
+  mixer: {fileID: 24100000, guid: be2a2b9282b99b84780b830b2e79eff8, type: 2}
 --- !u!114 &1533735163
 MonoBehaviour:
   m_ObjectHideFlags: 0

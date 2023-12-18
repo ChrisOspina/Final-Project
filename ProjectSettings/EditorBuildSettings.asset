@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Pirate.unity
     guid: a34ce0d07558f7647b8b73009260da69
   - enabled: 1
+    path: Assets/Scenes/Western.unity
+    guid: 0dba1eca182d08641953fef2f1236b6f
+  - enabled: 1
     path: Assets/Scenes/Win.unity
     guid: 1c6d6b6febe676940a3eed2229e4f243
   m_configObjects: {}
