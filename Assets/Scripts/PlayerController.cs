@@ -22,8 +22,7 @@ public class PlayerController : MonoBehaviour
     public string NextLevel;
     public int collectCount;
     public int collectTotal;
-
-    float volume_master = 0;
+    private float volume_master = 0;
     float volume_music = 0;
     float volume_sfx = 0;
     float volume_ambient = 0;
@@ -107,6 +106,10 @@ public class PlayerController : MonoBehaviour
             infoText.SetText("<mark>Howdy partner welcome to the wildest town in the wilderness! Watch out for dirty bandits as you find the " +
                 "magnificent seven diamonds</mark>");
         }
+        else if (currentLevel == 6)
+        {
+            infoText.SetText("<mark>This is the year 2124 where humanity caused global destruction and AI rules the world. To escape this dark future find all the stolen artifacts</mark>");
+        }
     }
 
     private void Awake()
@@ -178,7 +181,7 @@ public class PlayerController : MonoBehaviour
         else
             infoText.SetText("<mark>Be careful! messing with time could lead to serious consequences!</mark>");
 
-        if (GameData.health == 0)
+        if (GameData.health <= 0)
         {
             GameOver();
         }
@@ -191,7 +194,7 @@ public class PlayerController : MonoBehaviour
             infoText.SetText("Ouch! Yond wilt burn. Doth not muddle with fire");
         else
             infoText.SetText("<mark>Yow! That must burn. Don't play with fire!</mark>");
-        if (GameData.health == 0)
+        if (GameData.health <= 0)
         {
             GameOver();
         }
@@ -211,6 +214,8 @@ public class PlayerController : MonoBehaviour
             infoText.SetText("<mark>You found Aztec gold. Legend has it that the Aztec gods cursed the Spaniards for stealing their treasure.</mark>");
         else if (currentLevel == 5)
             infoText.SetText("<mark>Yee haw! You found one of the seven diamonds. Keep it out of bandits' reach</mark>");
+        else if (currentLevel == 6)
+            infoText.SetText("<mark>You collected one of the stolen artifacts.</mark>");
         bool allcollected = Checkallcollected();
 
         if (allcollected == true)
@@ -223,6 +228,8 @@ public class PlayerController : MonoBehaviour
                 infoText.SetText("Thou hath found the legendary sw'rd of King Arthur. Just what we needeth f'r researcheth anon the p'rtal is open by the Church");
             else if (currentLevel == 4)
                 infoText.SetText("<mark>The portal is now open by the ship. Hurry up to avoid getting cursed</mark>");
+            else if (currentLevel == 6)
+                infoText.SetText("<mark> Well done, intern. Your task is now complete. Hurry to the portal to return to the lab</mark>");
             else
             {
                 infoText.SetText("<mark>The portal is now open.</mark>");
@@ -278,7 +285,7 @@ public class PlayerController : MonoBehaviour
             infoText.SetText("<mark>Be careful some drinks may actually be poisonous</mark>");
         StartCoroutine(ApplyPoisonOverTime());
 
-        if (GameData.health == 0)
+        if (GameData.health <= 0)
         {
             GameOver();
         }
@@ -293,7 +300,6 @@ public class PlayerController : MonoBehaviour
             healthText.SetText("Health: " + GameData.health.ToString());
 
             poison.Play();
-           // Debug.Log(poison.isPlaying);
 
             // Wait for one second before the next iteration
             yield return new WaitForSeconds(1.0f);
@@ -319,6 +325,8 @@ public class PlayerController : MonoBehaviour
 
     void GameOver()
     {
+        if (GameData.health < 0)
+            GameData.health = 0;
         losePanel.SetActive(true);
         src.PlayOneShot(gameOver);
     }

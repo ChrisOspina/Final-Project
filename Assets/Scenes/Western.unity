@@ -946,7 +946,7 @@ MonoBehaviour:
   healthText: {fileID: 1750781034}
   countText: {fileID: 256549696}
   currentLevel: 5
-  NextLevel: Win
+  NextLevel: Future
   collectCount: 0
   collectTotal: 0
   pickupsound: {fileID: 8300000, guid: 34f9cbd28a9740349b6cc2f5e280dda3, type: 3}

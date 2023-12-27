@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Western.unity
     guid: 0dba1eca182d08641953fef2f1236b6f
   - enabled: 1
+    path: Assets/Scenes/Future.unity
+    guid: d2a48bea7032dbd4da9b27fcf3bce5cd
+  - enabled: 1
     path: Assets/Scenes/Win.unity
     guid: 1c6d6b6febe676940a3eed2229e4f243
   m_configObjects: {}
