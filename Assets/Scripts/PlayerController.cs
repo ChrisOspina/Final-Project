@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
 
         if (currentLevel == 0)
         {
-            infoText.SetText("<mark>Welcome to your summer job at Seidenberg Labs. Find all the missing test tubes and avoid our robot.</mark>");
+            infoText.SetText("Welcome to your summer job at Anipso Labs. Find all the missing test tubes and avoid our robot. P.S. Your point light will come in handy");
         }
         else if(currentLevel == 1)
         {
@@ -90,8 +90,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(currentLevel == 2)
         {
-            infoText.SetText("<mark>How often do you think of the Roman Empire? We sent you now to the Great Fire of Rome" +
-               " where the Emperor's soldiers are on the hunt for traitors. Collect all the coins to escape. Also watch out for flames</mark>");
+            infoText.SetText("Trapped in the Great Fire of Rome! Collect all coins while avoiding the Roman Army and flames to escape.");
         }
         else if (currentLevel == 3)
         {
@@ -99,16 +98,16 @@ public class PlayerController : MonoBehaviour
         }
         else if(currentLevel == 4)
         {
-            infoText.SetText("<mark>Yo Ho a Pirates Life for you! We sent you to colonial Hispaniola to find the cursed Aztec gold but remember Dead Men Tell No Tales.</mark>");
+            infoText.SetText("Yo Ho a Pirates Life for you! We sent you to colonial Hispaniola to find the cursed Aztec gold but remember Dead Men Tell No Tales.");
         }
         else if(currentLevel == 5)
         {
-            infoText.SetText("<mark>Howdy partner welcome to the wildest town in the wilderness! Watch out for dirty bandits as you find the " +
-                "magnificent seven diamonds</mark>");
+            infoText.SetText("Howdy partner welcome to the wildest town in the wilderness! Watch out for dirty bandits as you find the " +
+                "magnificent seven diamonds");
         }
         else if (currentLevel == 6)
         {
-            infoText.SetText("<mark>This is the year 2124 where humanity caused global destruction and AI rules the world. To escape this dark future find all the stolen artifacts</mark>");
+            infoText.SetText("This is the year 2125 where humanity caused global destruction and AI rules the world. To escape this dark future find all the stolen artifacts");
         }
     }
 
@@ -177,9 +176,9 @@ public class PlayerController : MonoBehaviour
         GameData.health -= 10;
         healthText.SetText("Health: " + GameData.health.ToString());
         if(currentLevel==3)
-            infoText.SetText("<mark>Beest careful! messing with time couldst leadeth to s'rious consequences!</mark>");
+            infoText.SetText("Beest careful! messing with time couldst leadeth to s'rious consequences!");
         else
-            infoText.SetText("<mark>Be careful! messing with time could lead to serious consequences!</mark>");
+            infoText.SetText("Be careful! messing with time could lead to serious consequences!");
 
         if (GameData.health <= 0)
         {
@@ -193,7 +192,7 @@ public class PlayerController : MonoBehaviour
         if (currentLevel == 3)
             infoText.SetText("Ouch! Yond wilt burn. Doth not muddle with fire");
         else
-            infoText.SetText("<mark>Yow! That must burn. Don't play with fire!</mark>");
+            infoText.SetText("Yow! That must burn. Don't play with fire!");
         if (GameData.health <= 0)
         {
             GameOver();
@@ -205,17 +204,17 @@ public class PlayerController : MonoBehaviour
         countText.SetText(collectCount.ToString() + " of " + collectTotal.ToString() + " items.");
 
         if (currentLevel == 0)
-            infoText.SetText("<mark>You collected a test tube</mark>");
+            infoText.SetText("You collected a test tube");
         else if (currentLevel == 1)
             infoText.SetText("You collected a vase. The Ancient Egyptians used this as a fine work of art.");
         else if (currentLevel == 2)
-            infoText.SetText("<mark>You collected a coin. The Romans first used money as we know it today.</mark>");
+            infoText.SetText("You collected a coin. The Romans first used money as we know it today.");
         else if (currentLevel == 4)
-            infoText.SetText("<mark>You found Aztec gold. Legend has it that the Aztec gods cursed the Spaniards for stealing their treasure.</mark>");
+            infoText.SetText("You found Aztec gold. Legend has it that the Aztec gods cursed the Spaniards for stealing their treasure.");
         else if (currentLevel == 5)
-            infoText.SetText("<mark>Yee haw! You found one of the seven diamonds. Keep it out of bandits' reach</mark>");
+            infoText.SetText("Yee haw! You found one of the seven diamonds. Keep it out of bandits' reach");
         else if (currentLevel == 6)
-            infoText.SetText("<mark>You collected one of the stolen artifacts.</mark>");
+            infoText.SetText("You collected one of the stolen artifacts.");
         bool allcollected = Checkallcollected();
 
         if (allcollected == true)
@@ -223,16 +222,16 @@ public class PlayerController : MonoBehaviour
             portal.SetActive(true);
 
             if (currentLevel == 0)
-                infoText.SetText("<mark>You collected all the test tubes now the portal is open to begin your real work.</mark>");
+                infoText.SetText("You collected all the test tubes now the portal is open to begin your real work.");
             else if (currentLevel == 3)
                 infoText.SetText("Thou hath found the legendary sw'rd of King Arthur. Just what we needeth f'r researcheth anon the p'rtal is open by the Church");
             else if (currentLevel == 4)
-                infoText.SetText("<mark>The portal is now open by the ship. Hurry up to avoid getting cursed</mark>");
+                infoText.SetText("The portal is now open by the ship. Hurry up to avoid getting cursed");
             else if (currentLevel == 6)
-                infoText.SetText("<mark> Well done, intern. Your task is now complete. Hurry to the portal to return to the lab</mark>");
+                infoText.SetText("Well done, intern. Your task is now complete. Hurry to the portal to return to the lab");
             else
             {
-                infoText.SetText("<mark>The portal is now open.</mark>");
+                infoText.SetText("The portal is now open.");
             }
         }
     }
@@ -240,7 +239,7 @@ public class PlayerController : MonoBehaviour
     {
         src.PlayOneShot(eatSound);
         if (currentLevel == 0)
-            infoText.SetText("<mark>Be sure to also be on the lookout for foods throughout your journey. They give you energy.</mark>");
+            infoText.SetText("Be sure to also be on the lookout for foods throughout your journey. They give you energy.");
         else if (currentLevel == 3)
         {
             infoText.SetText("Consume up f'r free en'rgy!");
@@ -249,7 +248,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            infoText.SetText("<mark>Eat up for free energy!</mark>");
+            infoText.SetText("Eat up for free energy!");
             GameData.health += 20;
             healthText.SetText("Health: " + GameData.health.ToString());
         }   
@@ -260,17 +259,17 @@ public class PlayerController : MonoBehaviour
         src.PlayOneShot(drinkSound);
         
         if (currentLevel == 0)
-            infoText.SetText("<mark>This is an energy drink. You will find some more throughout your journey</mark>");
+            infoText.SetText("This is an energy drink. You will find some more throughout your journey");
         else if(currentLevel == 3)
         {
-            infoText.SetText("<mark>'Tis at each moment imp'rtant to stayeth hydrat'd.  Giveth thou free en'rgy!</mark>");
+            infoText.SetText("'Tis at each moment imp'rtant to stayeth hydrat'd.  Giveth thou free en'rgy!");
             GameData.health += 10;
             healthText.SetText("Health: " + GameData.health.ToString());
         }
 
         else
         {
-            infoText.SetText("<mark>It's always important to stay hydrated. Gives you free energy!</mark>");
+            infoText.SetText("It's always important to stay hydrated. Gives you free energy!");
             GameData.health += 10;
             healthText.SetText("Health: " + GameData.health.ToString());
         }
@@ -282,7 +281,7 @@ public class PlayerController : MonoBehaviour
         if (currentLevel==3)
             infoText.SetText("Beest careful some drinks may actually beest poisonous");
         else
-            infoText.SetText("<mark>Be careful some drinks may actually be poisonous</mark>");
+            infoText.SetText("Be careful some drinks may actually be poisonous");
         StartCoroutine(ApplyPoisonOverTime());
 
         if (GameData.health <= 0)
@@ -364,7 +363,7 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("AI"))
         {
             if (currentLevel == 0)
-                infoText.SetText("<mark>This robot is just here to train you. When you're time travelling you won't get lucky.</mark>");
+                infoText.SetText("This robot is just here to train you. When you're time travelling you won't get lucky.");
             else
                 Die();
         }

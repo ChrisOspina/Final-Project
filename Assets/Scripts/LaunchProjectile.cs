@@ -5,13 +5,13 @@ using UnityEngine;
 public class LaunchProjectile : MonoBehaviour
 {
     public GameObject projectile;
-    public float launchVelocity = 700f;
+    public float launchVelocity = 20f;
     public float launchDelay = 1f;
+    public float projectileLifetime = 5f;
 
     AudioSource src;
     public AudioClip launchsound;
 
-    // Start is called before the first frame update
     private void Start()
     {
         src = GetComponent<AudioSource>();
@@ -23,18 +23,28 @@ public class LaunchProjectile : MonoBehaviour
         while (true)
         {
             GameObject ball = Instantiate(projectile, transform.position, transform.rotation);
-            ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, launchVelocity, 0));
+
+            Rigidbody rb = ball.GetComponent<Rigidbody>();
+            if (rb != null) 
+            {
+                rb.AddForce(transform.forward * launchVelocity, ForceMode.VelocityChange);
+            }
+
+            //ball.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, launchVelocity, 0));
             src.PlayOneShot(launchsound);
+
+            StartCoroutine(DestroyAfterDelay(ball, projectileLifetime));
 
             yield return new WaitForSeconds(launchDelay);
 
-            StartCoroutine(DestroyAfterDelay(ball, 1f));
         }
 
     }
     IEnumerator DestroyAfterDelay(GameObject obj, float delay)
     {
         yield return new WaitForSeconds(delay);
-        Destroy(obj);
+
+        if(obj!= null)
+            Destroy(obj);
     }
 }
