@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (currentLevel == 6)
         {
-            infoText.SetText("This is the year 2125 where humanity caused global destruction and AI rules the world. To escape this dark future find all the stolen artifacts");
+            infoText.SetText("This is the year 2125 where AI rules the world. To escape this dark future find all the stolen artifacts");
         }
     }
 

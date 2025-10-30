@@ -5,8 +5,8 @@ using UnityEngine;
 public class LaunchProjectile : MonoBehaviour
 {
     public GameObject projectile;
-    public float launchVelocity = 20f;
-    public float launchDelay = 1f;
+    public float launchVelocity = 10f;
+    public float launchDelay = 3f;
     public float projectileLifetime = 5f;
 
     AudioSource src;
